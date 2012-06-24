@@ -1,1 +1,11 @@
-- include: playbooks/zeromq/tasks/add-ppa-repository.yml
+
+- name: Install Python Software Properties
+  action: apt pkg=python-software-properties
+- name: Add ZeroMQ PPA repository
+  action: command add-apt-repository ppa:chris-lea/zeromq
+
+# Required as 10.04's libpgm is out of date
+- name: Add libpgm PPA repository
+  action: command add-apt-repository ppa:chris-lea/libpgm
+- name: Install ZeroMQ Library
+  action: apt pkg=libzmq-dev update-cache=yes
