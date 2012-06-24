@@ -1,0 +1,2 @@
+- name: Add ZeroMQ PPA repository
+  action: command add-apt-repository ppa:chris-lea/zeromq
